@@ -27,7 +27,6 @@ public class AuthController {
         return authService.forgotPassword(email, newPassword);
     }
 
-    // ✅ New API: Role Selection
     @PostMapping("/select-role")
     public String selectRole(@RequestParam String email, @RequestParam String role) {
         return authService.updateUserRole(email, role);
