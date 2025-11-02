@@ -13,15 +13,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for Postman testing
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for Postman/testing
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/signup",
-                                "/api/auth/login",
-                                "/api/auth/forgot-password"
-                        ).permitAll() // ✅ Allow public access
-                        .anyRequest().authenticated() // Protect other APIs
-                );
+                        .anyRequest().permitAll() // ✅ Allow ALL URLs without authentication
+                )
+                .httpBasic(httpBasic -> httpBasic.disable()) // Disable basic auth
+                .formLogin(form -> form.disable()); // Disable form login
 
         return http.build();
     }
