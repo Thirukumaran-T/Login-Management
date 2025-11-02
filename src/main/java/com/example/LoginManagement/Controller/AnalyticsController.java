@@ -13,18 +13,18 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 public class AnalyticsController {
 
-    @Autowired
-    private AnalyticsService analyticsService;
-
-    // Dashboard Summary API
-    @GetMapping("/summary")
-    public ReportSummary getSummary() {
-        return analyticsService.getDashboardSummary();
-    }
-
-    // Daily Revenue Chart Data
-    @GetMapping("/revenue/daily")
-    public List<Map<String, Object>> getDailyRevenue() {
-        return analyticsService.getDailyRevenueReport();
-    }
+//    @Autowired
+//    private AnalyticsService analyticsService;
+//
+//    // Dashboard Summary API
+//    @GetMapping("/summary")
+//    public ReportSummary getSummary() {
+//        return analyticsService.getDashboardSummary();
+//    }
+//
+//    // Daily Revenue Chart Data
+//    @GetMapping("/revenue/daily")
+//    public List<Map<String, Object>> getDailyRevenue() {
+//        return analyticsService.getDailyRevenueReport();
+//    }
 }

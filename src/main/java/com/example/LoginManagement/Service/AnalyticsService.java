@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class AnalyticsService {
     }
 
     public List<Map<String, Object>> getDailyRevenueReport() {
-        List<Object[]> results = analyticsRepository.getDailyRevenue();
+        List<Object[]> results = (List<Object[]>) analyticsRepository.getDailyRevenue();
         return results.stream()
                 .map(r -> {
                     Map<String, Object> map = new HashMap<>();
